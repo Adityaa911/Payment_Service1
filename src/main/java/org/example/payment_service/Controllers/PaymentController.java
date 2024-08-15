@@ -1,6 +1,7 @@
 package org.example.payment_service.Controllers;
 
 
+import com.razorpay.RazorpayException;
 import org.example.payment_service.Dtos.InitiatePaymentRequestDto;
 import org.example.payment_service.Service.PaymentService;
 import org.springframework.web.bind.annotation.*;
@@ -15,11 +16,17 @@ public class PaymentController {
     }
     @PostMapping("/")
     public String initiatePayment(@RequestBody InitiatePaymentRequestDto requestDto){
-        return paymentService.intiatePayment(
-                requestDto.getName(),
-                requestDto.getOrderId(),
-                requestDto.getAmount()
-        );
+        String payment=null;
+        try {
+            payment= paymentService.intiatePayment(
+                    requestDto.getName(),
+                    requestDto.getOrderId(),
+                    requestDto.getAmount()
+            );
+        } catch (RazorpayException e) {
+            throw new RuntimeException(e);
+        }
+        return payment;
     }
 
 

@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="PaymentServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" activateToolWindowBeforeRun="false" nameIsGenerated="true">
+    <envs>
+      <env name="razorPay_key_Id" value="12345" />
+      <env name="razorPay_key_secret" value="abcd" />
+    </envs>
+    <module name="Payment_Service" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.payment_service.PaymentServiceApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
